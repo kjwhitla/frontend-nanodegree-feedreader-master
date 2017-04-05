@@ -66,12 +66,6 @@ $(function() {
              it('is hidden by default', function() {
             expect($('body').hasClass('menu-hidden')).toBe(true);
         }); 
-        
-        /* #5 Write a test that ensures the menu element is
-         * hidden by default. You'll have to analyze the HTML and
-         * the CSS to determine how we're performing the
-         * hiding/showing of the menu element.
-         */
 
          /* #6 Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
@@ -98,6 +92,8 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         
+        /* Note: #7  This test ensures when the loadFeed is called that there is at least one .entry element in the feed */ 
+        
         beforeEach(function(done) {
             loadFeed(0, function() {
                 done(); 
@@ -110,10 +106,13 @@ $(function() {
         });
     });
 
-    /* fourth test suite - named "New Feed Selection"
+    /* fourth test suite - named "New Feed Selection" */
+     describe('New Feed Selection', function() {
 
         /* #8 Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+         
+     });
 }());
