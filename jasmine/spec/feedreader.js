@@ -66,8 +66,7 @@ $(function() {
         });
         
         it('has at least one entry in the feed container', function(done) {
-            expect($('.feed').children().length).toBeGreaterThan(0);
-            done();
+            expect($('.feed .entry').children().length).toBeGreaterThan(0);
         });
     });
 
@@ -88,9 +87,8 @@ $(function() {
         it('changes content when a new feed is loaded', function(done) {
             loadFeed(1, function() {
                 updatedContent = $('.feed').html()
-                done();
+                expect(updatedContent).not.toBe(content);
             });
-            expect(updatedContent).not.toBe(content);
         });
          
      });
