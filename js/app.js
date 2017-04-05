@@ -66,7 +66,7 @@ function init() {
                   * the resulting HTML to the list of entries on the page.
                   */
                  entries.forEach(function(entry) {
-//                     container.append(entryTemplate(entry));
+                     container.append(entryTemplate(entry));
                  });
 
                  if (cb) {
