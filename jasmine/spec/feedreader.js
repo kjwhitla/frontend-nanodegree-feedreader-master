@@ -93,7 +93,6 @@ $(function() {
          */
         
         /* Note: #7  This test ensures when the loadFeed is called that there is at least one .entry element in the feed */ 
-        
         beforeEach(function(done) {
             loadFeed(0, function() {
                 done(); 
@@ -113,6 +112,23 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+         var content, // variable is for the feed entry before the first loadfeed
+            updatedContent; // variable is for the feed entry after the loadfeed
+
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                content = $('.feed').html();
+                done();
+            });
+        });
+
+        it('changes content when a new feed is loaded', function(done) {
+            loadFeed(1, function() {
+                updatedContent = $('.feed').html()
+                done();
+            });
+            expect(updatedContent).not.toBe(content);
+        });
          
      });
 }());
